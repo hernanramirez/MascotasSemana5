@@ -77,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mAbout:
 
                 break;
+
+            case R.id.action_contacto:
+                Intent intent = new Intent(MainActivity.this, ContactoActivity.class);
+                startActivity(intent);
+                break;
+
             case R.id.mFavoritos:
                 Intent i = new Intent(this, MascotasFavoritas.class);
                 startActivity(i);

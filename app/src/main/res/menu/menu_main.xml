@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/mAbout"
-        android:title="@string/text_menu_about">
-
-    </item>
-
-    <item
         android:id="@+id/mFavoritos"
         android:title="@string/text_menu_fav"
         android:orderInCategory="102"
@@ -16,5 +10,16 @@
         android:icon="@drawable/five_star">
 
     </item>
+
+    <item
+        android:id="@+id/action_contacto"
+        android:orderInCategory="110"
+        android:title="@string/action_contacto"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_acerca"
+        android:orderInCategory="120"
+        android:title="@string/action_acerca"
+        app:showAsAction="never" />
 
 </menu>
