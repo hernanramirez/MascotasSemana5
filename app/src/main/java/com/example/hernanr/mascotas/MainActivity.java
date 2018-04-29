@@ -1,6 +1,8 @@
 package com.example.hernanr.mascotas;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.hernanr.mascotas.adapters.MascotaAdaptador;
 import com.example.hernanr.mascotas.models.Mascota;
@@ -74,7 +77,24 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.mAbout:
+            case R.id.action_acerca:
+
+                View messageView = getLayoutInflater().inflate(R.layout.dialogo_acerca, null, false);
+
+                AlertDialog.Builder dialogo_acerca = new AlertDialog.Builder(MainActivity.this);
+                //dialogo_acerca.setIcon(R.drawable.footprint_black);
+                dialogo_acerca.setTitle(R.string.app_name);
+                dialogo_acerca.setView(messageView);
+                dialogo_acerca.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.dismiss();
+
+                    }
+                });
+                dialogo_acerca.create();
+
+                dialogo_acerca.show();
 
                 break;
 

@@ -14,4 +14,8 @@
     <string name="contacto_nota">Nota</string>
 
 
+    <string name="dialogo_text01">Texto 01</string>
+    <string name="dialogo_text02">Texto 02</string>
+    <string name="dialogo_text03">Texto 03</string>
+
 </resources>
