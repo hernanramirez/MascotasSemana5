@@ -3,6 +3,7 @@ package com.example.hernanr.mascotas;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,14 @@ public class ContactoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacto);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.actionBar);
+
+        if (toolbar != null) {
+            toolbar.setNavigationIcon(R.drawable.ic_action_pet);
+            toolbar.setTitle(R.string.app_name);
+            setSupportActionBar(toolbar);
+        }
 
         editNombre = (EditText) findViewById(R.id.editNombre);
         editCorreo = (EditText) findViewById(R.id.editCorreo);
