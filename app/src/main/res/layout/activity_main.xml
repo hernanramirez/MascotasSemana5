@@ -7,20 +7,54 @@
     android:layout_height="match_parent"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <include android:id="@+id/actionbar" layout="@layout/action_bar">
 
-    </include>
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/tope"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerListaMascotas"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+    <!--include android:id="@+id/actionbar" layout="@layout/action_bar">
+
+    </include-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/actionbar"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v4.view.ViewPager>
 
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_action_camare" />
+
+    <!--
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabPhoto"
         android:layout_width="wrap_content"
@@ -35,7 +69,6 @@
         app:layout_anchorGravity="right|bottom">
 
     </android.support.design.widget.FloatingActionButton>
-
-
+    -->
 
 </android.support.design.widget.CoordinatorLayout>

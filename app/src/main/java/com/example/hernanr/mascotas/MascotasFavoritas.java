@@ -22,7 +22,7 @@ public class MascotasFavoritas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mascota_favorita);
 
-        Toolbar actionBar = (Toolbar) findViewById(R.id.actionbar);
+        Toolbar actionBar = (Toolbar) findViewById(R.id.actionBar);
 
         if (actionBar != null) {
             //actionBar.setNavigationIcon(R.drawable.ic_action_pet);

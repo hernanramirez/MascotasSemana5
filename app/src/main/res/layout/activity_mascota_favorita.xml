@@ -6,14 +6,14 @@ android:layout_height="match_parent"
 tools:context=".MascotasFavoritas">
 
 <include
-    android:id="@id/actionbar" layout="@layout/action_bar">
+    android:id="@id/actionBar" layout="@layout/action_bar">
 </include>
 
 <android.support.v7.widget.RecyclerView
     android:id="@+id/recyclerListaMascotasFAV"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@id/actionbar"
+    android:layout_below="@id/actionBar"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
