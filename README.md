@@ -2,7 +2,7 @@
 
 Modelo de entidad relación
 
-![Modelo de Entdad Relación](https://raw.githubusercontent.com/hernanramirez/MascotasSemana5/master/docs/img/ModeloEP.png)
+![Modelo de Entdad Relación](https://raw.githubusercontent.com/hernanramirez/MascotasSemana5/master/docs/img/ModeloER.png)
 
 Captura de pantallas de la aplicación
 
