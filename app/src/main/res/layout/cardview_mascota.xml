@@ -45,7 +45,7 @@
                 android:textStyle="bold"
                 android:paddingTop="13dp"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imgCVRate"
                 android:layout_width="@dimen/imageView_width"
                 android:layout_height="@dimen/imageView_heigth"

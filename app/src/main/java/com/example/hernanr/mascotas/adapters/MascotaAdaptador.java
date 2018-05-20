@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hernanr.mascotas.R;
+import com.example.hernanr.mascotas.db.MascotasConstructor;
 import com.example.hernanr.mascotas.models.Mascota;
 
 import java.util.ArrayList;
@@ -35,16 +36,29 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder mascotaViewHolderholder, int position) {
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) {
+
 
         final Mascota mascota = mascotas.get(position);
-        mascotaViewHolderholder.imgFotoCV.setImageResource(mascota.getFoto());
-        mascotaViewHolderholder.nombreCV.setText(mascota.getNombre());
 
-        mascotaViewHolderholder.imageButton.setOnClickListener(new View.OnClickListener() {
+        MascotasConstructor mascotasConstructor = new MascotasConstructor(activity);
+        mascotasConstructor.darRaitingMascota(mascota);
+
+        mascotaViewHolder.imgFotoCV.setImageResource(mascota.getFoto());
+        mascotaViewHolder.nombreCV.setText(mascota.getNombre());
+        mascotaViewHolder.textViewCVContador.setText(String.valueOf(mascotasConstructor.obtenerRaitingMascota(mascota)) + " Likes");
+
+        mascotaViewHolder.imageButtonRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(activity, "Like " + mascota.getNombre(), Toast.LENGTH_SHORT ).show();
+
+                MascotasConstructor mascotasConstructor = new MascotasConstructor(activity);
+                mascotasConstructor.darRaitingMascota(mascota);
+
+                mascotaViewHolder.textViewCVContador.setText(Integer.toString(mascotasConstructor.obtenerRaitingMascota(mascota)) );
+
+
             }
         });
 
@@ -59,13 +73,15 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
         private ImageView imgFotoCV;
         private TextView nombreCV;
-        private ImageButton imageButton;
+        private ImageButton imageButtonRate;
+        private TextView textViewCVContador;
 
         public MascotaViewHolder(View itemView) {
             super(itemView);
             imgFotoCV = (ImageView) itemView.findViewById(R.id.imgCVMascota);
             nombreCV = (TextView) itemView.findViewById(R.id.textViewCVNombre);
-            imageButton = (ImageButton) itemView.findViewById(R.id.imgBtnCVLike);
+            imageButtonRate = (ImageButton) itemView.findViewById(R.id.imgCVRate);
+            textViewCVContador = (TextView) itemView.findViewById(R.id.textViewCVContador);
         }
     }
 

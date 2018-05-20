@@ -55,11 +55,13 @@ public class MascotasFavoritas extends AppCompatActivity {
 
         mascotasFAV = new ArrayList<Mascota>();
 
+        /*
         mascotasFAV.add(new Mascota(R.drawable.canario, "Solitario"));
         mascotasFAV.add(new Mascota(R.drawable.camaleon01, "Pepe"));
         mascotasFAV.add(new Mascota(R.drawable.beto, "Beto"));
         mascotasFAV.add(new Mascota(R.drawable.pablo, "Pable"));
         mascotasFAV.add(new Mascota(R.drawable.merlin, "Merlin"));
+        */
     }
 
     @Override
