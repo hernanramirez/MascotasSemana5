@@ -45,15 +45,15 @@ public class MascotasDB extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXIST " + ConstantesDB.TABLE_MASCOTAS);
-        db.execSQL("DROP TABLE IF EXIST " + ConstantesDB.TABLE_RAITING_MASCOTAS);
+        db.execSQL("DROP TABLE IF EXISTS " + ConstantesDB.TABLE_MASCOTAS);
+        db.execSQL("DROP TABLE IF EXISTS " + ConstantesDB.TABLE_RAITING_MASCOTAS);
         onCreate(db);
 
     }
 
     public ArrayList<Mascota> obtenerMascotas() {
 
-        ArrayList<Mascota> puppyList = new ArrayList<>();
+        ArrayList<Mascota> mascotaArrayList = new ArrayList<>();
 
         String query = "SELECT * FROM " + ConstantesDB.TABLE_MASCOTAS;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -78,14 +78,14 @@ public class MascotasDB extends SQLiteOpenHelper {
                 mascota.setRaiting(0);
             }
             registrosRaiting.close();
-            puppyList.add(mascota);
+            mascotaArrayList.add(mascota);
 
         }
 
         registros.close();
         db.close();
 
-        return puppyList;
+        return mascotaArrayList;
     }
 
     public void insertarMascota(ContentValues contentValues) {
@@ -139,6 +139,47 @@ public class MascotasDB extends SQLiteOpenHelper {
     }
 
     public ArrayList<Mascota> obtenerMascotasFavoritas() {
+
+
+        ArrayList<Mascota> mascotaArrayList = new ArrayList<>();
+
+        String query = "SELECT * FROM " + ConstantesDB.TABLE_MASCOTAS;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor registros = db.rawQuery(query, null);
+
+        while (registros.moveToNext()) {
+            Mascota mascota = new Mascota(
+                    registros.getInt(0),
+                    registros.getString(1),
+                    registros.getInt(2)
+            );
+
+            /*
+            String queryRaiting = "SELECT COUNT(" + ConstantesDB.TABLE_RAITING_MASCOTAS_NUMERO + ") as likes " +
+                    " FROM " + ConstantesDB.TABLE_RAITING_MASCOTAS +
+                    " WHERE " + ConstantesDB.TABLE_RAITING_MASCOTAS_ID + "=" + mascota.getId();
+
+            Cursor registrosRaiting = db.rawQuery(queryRaiting, null);
+            if (registrosRaiting.moveToNext()) {
+                mascota.setRaiting(registrosRaiting.getInt(0));
+            } else {
+                mascota.setRaiting(0);
+            }
+            registrosRaiting.close();
+            */
+            mascotaArrayList.add(mascota);
+
+        }
+
+        registros.close();
+        db.close();
+
+        return mascotaArrayList;
+
+
+        /*
+
         ArrayList<Mascota> puppyList = new ArrayList<>();
 
         String query = "SELECT * FROM " + ConstantesDB.TABLE_MASCOTAS + " " +
@@ -152,7 +193,7 @@ public class MascotasDB extends SQLiteOpenHelper {
         Cursor registros = db.rawQuery(query, null);
 
         while (registros.moveToNext()) {
-            Mascota puppy = new Mascota(
+            Mascota mascota = new Mascota(
                     registros.getInt(0),
                     registros.getString(1),
                     registros.getInt(2)
@@ -160,22 +201,24 @@ public class MascotasDB extends SQLiteOpenHelper {
 
             String queryRaiting = "SELECT COUNT(" + ConstantesDB.TABLE_RAITING_MASCOTAS_NUMERO + ") as likes " +
                     " FROM " + ConstantesDB.TABLE_RAITING_MASCOTAS +
-                    " WHERE " + ConstantesDB.TABLE_RAITING_MASCOTAS_ID + "=" + puppy.getId();
+                    " WHERE " + ConstantesDB.TABLE_RAITING_MASCOTAS_ID + "=" + mascota.getId();
 
             Cursor registrosRaiting = db.rawQuery(queryRaiting, null);
             if (registrosRaiting.moveToNext()) {
-                puppy.setRaiting(registrosRaiting.getInt(0));
+                mascota.setRaiting(registrosRaiting.getInt(0));
             } else {
-                puppy.setRaiting(0);
+                mascota.setRaiting(0);
             }
             registrosRaiting.close();
-            puppyList.add(puppy);
+            puppyList.add(mascota);
 
         }
         registros.close();
         db.close();
 
         return puppyList;
+
+        */
 
     }
 }

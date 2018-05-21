@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import com.example.hernanr.mascotas.adapters.MascotaAdaptador;
+import com.example.hernanr.mascotas.db.MascotasConstructor;
 import com.example.hernanr.mascotas.models.Mascota;
 
 import java.util.ArrayList;
@@ -55,13 +56,18 @@ public class MascotasFavoritas extends AppCompatActivity {
 
         mascotasFAV = new ArrayList<Mascota>();
 
+        MascotasConstructor mascotasConstructor = new MascotasConstructor(this);
+        mascotasFAV = mascotasConstructor.obtenerFavoritos();
+
+
         /*
-        mascotasFAV.add(new Mascota(R.drawable.canario, "Solitario"));
-        mascotasFAV.add(new Mascota(R.drawable.camaleon01, "Pepe"));
-        mascotasFAV.add(new Mascota(R.drawable.beto, "Beto"));
-        mascotasFAV.add(new Mascota(R.drawable.pablo, "Pable"));
-        mascotasFAV.add(new Mascota(R.drawable.merlin, "Merlin"));
+        mascotasFAV.add(new Mascota(1,"pepe",R.drawable.pepe));
+        mascotasFAV.add(new Mascota(2,"Pepe", R.drawable.camaleon01 ));
+        mascotasFAV.add(new Mascota(3 ,"Beto", R.drawable.beto));
+        mascotasFAV.add(new Mascota(4, "Pable", R.drawable.pablo));
+        mascotasFAV.add(new Mascota(5, "Merlin", R.drawable.merlin ));
         */
+
     }
 
     @Override
